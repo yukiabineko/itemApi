@@ -2,7 +2,7 @@
 	require 'pass.php';
 	
 	try {
-		$dbh = new PDO("mysql:host=localhost;dbname=db1;charset=utf8",$user,$pass);
+		$dbh = new PDO($dsn, $user, $pass);
 		$dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 		$smt = $dbh->query("SELECT *FROM items");
 		$result = $smt->fetchAll(PDO::FETCH_ASSOC);
@@ -18,7 +18,7 @@
 	$id = (int)$last['id'] + 1;
 	$img = "tmp/data".$id.".jpg"; 
 	try {
-		$dsn = 'mysql:dbname=db1;host=localhost';   
+		
 		if(!empty($_POST['itemsName'])){
 			$dbh = new PDO($dsn, $user, $pass);
 			$dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);

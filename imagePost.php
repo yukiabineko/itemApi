@@ -1,11 +1,8 @@
 <?php
-    
-    $dsn = 'mysql:dbname=db1;host=localhost';
-	$user = 'abi';
-	$password = '123';
-
+    require 'pass.php';
+  
 	try {
-		$dbh = new PDO($dsn, $user, $password);
+		$dbh = new PDO($dsn, $user, $pass);
 		$dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 		$smt= $dbh->query('SELECT*FROM items');
 		$result = $smt->fetchAll(PDO::FETCH_ASSOC);
