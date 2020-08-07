@@ -1,21 +1,6 @@
 <?php
-	require 'pass.php';
-	
-	try {
-		$dbh = new PDO($dsn, $user, $pass);
-		$dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-		$smt = $dbh->query("SELECT *FROM items");
-		$result = $smt->fetchAll(PDO::FETCH_ASSOC);
-		$dbh = null;
+	 require 'getId.php';
 		
-	} catch (Exception $e) {
-		echo htmlspecialchars($e->getMessage(),ENT_QUOTES);
-		die();
-	}
-
-	$last = end($result);
-	print_r($result);
-	$id = (int)$last['id'] + 1;
 	$img = "tmp/data".$id.".jpg"; 
 	try {
 		
