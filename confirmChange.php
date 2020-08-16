@@ -10,13 +10,13 @@
     $smt->bindValue(1, '0',PDO::PARAM_STR);
     $smt->bindValue(2, (int)$_POST['id'], PDO::PARAM_INT);
     $smt->execute();
-    echo '発注数を確定しました。'
+    echo '発注数を確定しました。';
    }
    else{
     $smt->bindValue(1, '1',PDO::PARAM_STR);
     $smt->bindValue(2, (int)$_POST['id'], PDO::PARAM_INT);
     $smt->execute();
-    echo '発注数をリセットしました。'
+    echo '発注数をリセットしました。';
    }
  
    $result = $smt->fetch(PDO::FETCH_ASSOC);
