@@ -19,7 +19,6 @@
     echo '発注数をリセットしました。';
    }
  
-   $result = $smt->fetch(PDO::FETCH_ASSOC);
   }
  
   $dbh = null;
