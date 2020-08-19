@@ -3,7 +3,7 @@
  try {
    $dbh = new PDO($dsn, $user, $pass);
    $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-   $smt = $dbh->prepare("SELECT * FROM orders WHERE user_id=?");
+   $smt = $dbh->prepare("SELECT * FROM orders INNER JOIN items ON orders.item_id=items.id WHERE user_id=?");
    $smt->bindValue(1, (int)$_POST['id'],PDO::PARAM_INT);
    $smt->execute();
    $result = $smt->fetchAll(PDO::FETCH_ASSOC);

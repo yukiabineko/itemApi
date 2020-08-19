@@ -39,10 +39,16 @@
 
      }
    }
-   $json = json_encode($user,JSON_UNESCAPED_SLASHES);
-   header("Access-Control-Allow-Origin: *"); 
+   /******************************送信データ****************************************** */
+   $smt5 = $dbh->prepare("SELECT * FROM orders INNER JOIN items ON orders.item_id=items.id WHERE user_id=?");
+   $smt5->bindValue(1, (int)$user_id, PDO::PARAM_INT);
+   $smt5->execute();
+   $result = $smt5->fetchAll(PDO::FETCH_ASSOC);
+   $json = json_encode($result,JSON_UNESCAPED_SLASHES);
+   header("Access-Control-Allow-Origin: *");
    print_r($json);
-  
+   echo $user['shop'];
+
  
   }
   else{
