@@ -30,11 +30,12 @@
      $order = $smt3->fetch(PDO::FETCH_ASSOC);
   
      if(empty($order)){
-      $smt4 = $dbh->prepare("INSERT INTO orders(name, price, item_id, user_id)VALUES(?,?,?,?)");
+      $smt4 = $dbh->prepare("INSERT INTO orders(name, price, item_id, user_id, memo)VALUES(?,?,?,?,?)");
       $smt4->bindValue(1, $item['name'], PDO::PARAM_STR);
       $smt4->bindValue(2, (int)$item['price'], PDO::PARAM_INT);
       $smt4->bindValue(3, (int)$item['id'], PDO::PARAM_INT);
       $smt4->bindValue(4,(int)$user_id, PDO::PARAM_INT);
+      $smt4->bindValue(5, '', PDO::PARAM_STR);
       $smt4->execute();
 
      }
