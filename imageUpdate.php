@@ -1,4 +1,5 @@
 <?php
+ //
   $imgid = (int)$_POST['id'];
   $data = file_get_contents("php://input");
   $fp = fopen("tmp/data".$imgid.".jpg", 'wb');
