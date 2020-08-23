@@ -16,7 +16,8 @@
    }
    else if($_POST['confirm'] == '1'){
     $smt->bindValue(1, 0,PDO::PARAM_INT);
-    $smt->bindValue(2, (int)$_POST['id'], PDO::PARAM_INT);
+    $smt->bindValue(2, (int)$_POST['user_id'], PDO::PARAM_INT);
+    $smt->bindValue(3, (int)$_POST['item_id'], PDO::PARAM_INT);
     $smt->execute();
     echo '発注数をリセットしました。';
    }

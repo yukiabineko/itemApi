@@ -7,7 +7,7 @@
 		if(!empty($_POST['itemsName'])){
 			$dbh = new PDO($dsn, $user, $pass);
 			$dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-			$smt2= $dbh->prepare('INSERT INTO items(name,price,path,memo)VALUES(?,?,?,?)');
+			$smt2= $dbh->prepare('INSERT INTO items(name,price,path,info)VALUES(?,?,?,?)');
 			$smt2->bindValue(1, $_POST["itemsName"], PDO::PARAM_STR);
 			$smt2->bindValue(2, $_POST["price"], PDO::PARAM_INT);
 			$smt2->bindValue(3, $img, PDO::PARAM_STR);
