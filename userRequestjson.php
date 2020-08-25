@@ -3,7 +3,7 @@
  try {
   $dbh = new PDO($dsn, $user, $pass);
   $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-  $smt = $dbh->query("SELECT *FROM orders INNER JOIN users ON orders.user_id=users.id");
+  $smt = $dbh->query("SELECT *FROM orders INNER JOIN users ON orders.user_id=users.id WHERE num>0");
   $result = $smt->fetchAll(PDO::FETCH_ASSOC);
   $dbh = null;
   

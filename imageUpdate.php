@@ -14,11 +14,18 @@
     echo htmlspecialchars($e->getMessage(),ENT_QUOTES);
     die();
   }
-  unlink("tmp/data".$result['id'].".jpg");
+ 
   $data = file_get_contents("php://input");
-  $fp = fopen("tmp/data".$result['id'].".jpg", 'wb');
-  chmod("tmp/data".$result['id'].".jpg", 0777);
-  fwrite($fp, $data);
-  fclose($fp);
-  print_r($result);
+  if($data){
+    unlink("tmp/data".$result['id'].".jpg");
+    $fp = fopen("tmp/data".$result['id'].".jpg", 'wb');
+    chmod("tmp/data".$result['id'].".jpg", 0777);
+    fwrite($fp, $data);
+    fclose($fp);
+    print_r($result);
+  }
+  else{
+    echo 'empty';
+  }
+ 
 ?>
