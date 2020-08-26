@@ -13,7 +13,7 @@
    $array =array();
 
    foreach($users as $user){
-     $smt2 =$dbh->prepare("SELECT *FROM  orders WHERE user_id=?");
+     $smt2 =$dbh->prepare("SELECT *FROM  orders WHERE user_id=? AND num >0");
      $smt2->bindValue(1, (int)$user["id"], PDO::PARAM_INT);
      $smt2->execute();
      $orders = $smt2->fetchAll(PDO::FETCH_ASSOC);
