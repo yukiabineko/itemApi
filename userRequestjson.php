@@ -5,7 +5,8 @@
   $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
   /*オーダー + アイテム*/
-  $smt = $dbh->query("SELECT *FROM orders INNER JOIN users ON orders.user_id=users.id WHERE num>0");
+  $smt = $dbh->query("SELECT *FROM orders INNER JOIN users ON orders.user_id=users.id
+  INNER JOIN items ON orders.item_id= items.id WHERE num>0");
   $result = $smt->fetchAll(PDO::FETCH_ASSOC);
 
   /************************************************************************************** */
