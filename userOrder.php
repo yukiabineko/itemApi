@@ -1,4 +1,5 @@
 <?php 
+ 
  require 'pass.php';
  try {
   $dbh = new PDO($dsn, $user, $pass);

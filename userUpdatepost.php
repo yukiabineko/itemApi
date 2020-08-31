@@ -10,12 +10,12 @@
 
       $dbh = new PDO($dsn, $user, $pass);
       $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-      $smt = $dbh->prepare("UPDATE orders SET num=?, memo=?, day=?, name=?, price=? WHERE user_id=? AND item_id=?");
+      $smt = $dbh->prepare("UPDATE orders SET num=?, memo=?, day=?, item_name=?, item_price=? WHERE user_id=? AND item_id=?");
       $smt->bindValue(1, (int)$_POST['num'], PDO::PARAM_INT);
       $smt->bindValue(2, $_POST['memo'], PDO::PARAM_STR);
       $smt->bindValue(3, $_POST['day'], PDO::PARAM_STR);
-      $smt->bindValue(4, $_POST['name'], PDO::PARAM_STR);
-      $smt->bindValue(5, $_POST['price'], PDO::PARAM_STR);
+      $smt->bindValue(4, $_POST['item_name'], PDO::PARAM_STR);
+      $smt->bindValue(5, $_POST['item_price'], PDO::PARAM_STR);
       $smt->bindValue(6, (int)$_POST['user_id'], PDO::PARAM_INT);
       $smt->bindValue(7, (int)$_POST['item_id'], PDO::PARAM_INT);
       $smt->execute();
