@@ -21,7 +21,7 @@
    }
    
    $dbh = null;
-   
+   //
  } catch (Exception $e) {
    echo htmlspecialchars($e->getMessage(),ENT_QUOTES);
    die();
