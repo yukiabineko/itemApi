@@ -12,7 +12,7 @@
      $smt->bindValue(2, $_POST['email'],PDO::PARAM_STR);
      $smt->bindValue(3, $hash_pass,PDO::PARAM_STR);
      $smt->bindValue(4, $_POST['tel'],PDO::PARAM_STR);
-     $smt->bindValue(4, (int)$_POST['id'],PDO::PARAM_INT);
+     $smt->bindValue(5, (int)$_POST['id'],PDO::PARAM_INT);
      $smt->execute();
      echo '編集しました。';
    }
